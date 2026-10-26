@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Um potinho de amor para o Bryan ♡</title>
+<style>
+:root{--pink:#d94d83;--dark:#a52d59;--ink:#503744}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;padding:24px 16px;display:grid;place-items:center;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(circle at top,#ffe0eb,#fff7f8 55%,#fffaf5);overflow-x:hidden}
+.card{width:min(100%,460px);text-align:center;background:#ffffffeb;border:1px solid #f8d4e1;border-radius:28px;padding:28px 22px;box-shadow:0 18px 50px #a52d591f}
+.eyebrow{display:inline-block;padding:7px 12px;border-radius:999px;background:#fff0f5;color:var(--dark);font-size:.82rem;font-weight:700}
+.jar{font-size:4.2rem;margin:14px 0 4px;animation:bob 3s ease-in-out infinite}
+h1{color:var(--dark);font-size:clamp(1.8rem,7vw,2.4rem);line-height:1.1;margin:8px 0 10px}
+.intro{line-height:1.6;margin:0 auto 20px;max-width:330px;color:#765c68}
+.counter{font-size:.88rem;font-weight:700;color:var(--pink);margin:16px 0 10px}
+.progress{height:7px;background:#f8e2eb;border-radius:999px;overflow:hidden;margin:0 8px 18px}
+.progress-fill{width:0%;height:100%;background:linear-gradient(90deg,#f3a4c1,var(--pink));border-radius:inherit;transition:width .35s}
+.reason-box{height:150px;display:grid;align-content:center;gap:12px;padding:22px;overflow:hidden;}
+.reason-number{color:#b77b92;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;display: none !important;}
+#reason{color:var(--dark);font-size:1.1rem;font-weight:600;background:#fff0f5;height:85px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;box-sizing:border-box; padding: 0 15px;}
+.buttons{display:grid;gap:10px;margin-top:18px}
+button{border:0;border-radius:999px;padding:14px 18px;font:inherit;font-weight:750;cursor:pointer;transition:transform .15s,filter .15s}
+button:hover{filter:brightness(.98);transform:translateY(-1px)}
+button:focus-visible{outline:3px solid var(--dark);outline-offset:3px}
+.primary{color:white;background:var(--pink);box-shadow:0 7px 16px #d94d8338}
+.secondary{color:var(--dark);background:#fff0f5}
+.tiny{margin:18px 0 0;color:#9b7b89;font-size:.78rem;line-height:1.5}
+.footer{margin-top:14px;font-size:.85rem;color:#a56a83}
+.letter{display: none; margin-top:20px;padding:20px 16px;border-radius:20px;background:#fff0f5;border:1px solid #f4c5d7;text-align:left}
+.letter[hidden],.letter-text[hidden]{display:none}
+.letter-icon{text-align:center;font-size:2rem}
+.letter h2{text-align:center;color:var(--dark);font-size:1.25rem;margin:8px 0}
+.letter>p{text-align:center;line-height:1.55}
+.letter-text{margin-top:18px;padding-top:14px;border-top:1px dashed #e8a9c1;line-height:1.7}
+.letter-text h3{color:var(--dark);text-align:center}
+.letter-text p{margin:0 0 13px}
+.letter-text .signature{text-align:right;color:var(--dark);font-weight:700}
+.heart{position:fixed;bottom:-30px;pointer-events:none;animation:float-up 2.8s ease-out forwards;z-index:5}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-7px) rotate(2deg)}}
+@keyframes float-up{to{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<main class="card">
+<span class="eyebrow">Feito com amor para você ♡</span>
+<div class="jar" aria-hidden="true">🫙💗</div>
+<h1>Um potinho de amor para Bryan Rafael ♡</h1>
+<p class="intro">Amor, cada detalhe aqui é um lembrete do quanto você é especial para mim e do quanto eu te amo.❤️</p>
+<div class="counter" id="counter">MOTIVO 1 DE 61</div>
+<div class="progress" aria-label="Progresso dos motivos"><div class="progress-fill" id="progressFill"></div></div>
+<div class="buttons">
+  <div class="reason-number" id="reasonLabel" style="display: none;">um motivo para sorrir</div>
+  <p id="reason"></p>
+<button class="primary" id="nextButton"> Ver motivo 💌</button>
+<button class="secondary" id="surpriseButton" style="display: none;">Quero uma surpresa! 🎁</button>
+</div>
+<p class="tiny" id="hint">Ps: Cada motivo aparece uma vez. E no final tem uma surpresa só sua.💌</p>
+<section class="letter" id="letter" style="display: none;" aria-live="polite">
+<div class="letter-icon">💌</div>
+<h2>Uma última coisinha, Amor...</h2>
+<p>Você chegou até o fim do potinho. Agora tem uma carta que eu queria muito que você lesse. ❤️</p>
+<button class="primary" id="openLetterButton">Abrir minha carta 💌</button>
+<div class="letter-text" id="letterText" hidden>
+<h3>Para o meu Amor ♡</h3>
+<p>Amor, se você chegou até aqui, espero que tenha entendido pelo menos um pouquinho do quanto é especial para mim. Às vezes, penso em como as coisas aconteceram entre a gente e em como você conquistou um espaço tão grande na minha vida. E, se eu pudesse reviver aquele dia em que você me pediu em namoro, provavelmente ficaria toda boba de novo e ainda perguntaria se era mentira KKKKKK.</p>
+<p>Eu amo a nossa maneira de ser juntos, a mistura de carinho com brincadeiras, nossas implicâncias e até as besteiras que nos fazem rir. Amo “cantar” com você no carro, segurar sua mão seja em público ou enquanto você dirige e perceber como momentos tão simples podem se tornar tão especiais quando estou ao seu lado. Acho que uma das partes mais bonitas de gostar de alguém é encontrar felicidade nessas pequenas coisas. </p>
+<p> Não sei tudo o que o futuro reserva para nós, mas quero continuar construindo nossa história, vivendo novos momentos, apoiando você e descobrindo cada vez mais sobre nós dois. Não espero que tudo seja perfeito, só quero que exista carinho, companheirismo e vontade de fazer dar certo. Espero que, daqui a muito tempo, a gente ainda olhe para o começo de tudo e sorria ao lembrar de como chegamos até aqui. Ps: Maldito talento né? saimos uma vez e não se desgrudamos mais.</p>
+<p> Entre tantas outras opções… eu escolheria você de novo! E provavelmente continuaria enchendo seu saco da mesma forma KKKKK.❤️</p>
+<p class="signature">Com todo o meu carinho,<br>Yasmin ♡</p>
+</div>
+</section>
+<div class="footer">com amor, Yasmin ♡</div>
+</main>
+<script>
+const motivos = [
+"Eu amo o seu sorriso.",
+"Eu amo os seus olhos.",
+"Eu amo a forma como resolvemos nossas brigas.",
+"Eu amo seus carinhos.",
+"Eu amo as suas brincadeiras.",
+"Eu amo o jeito que você fala comigo.",
+"Eu amo a sua voz.",
+"Eu amo confiar em você.",
+"Eu amo como você confia em mim.",
+"Eu amo passar cada segundo do meu dia pensando em você.",
+"Eu amo estar com saudade segundos depois de me despedir de você.",
+"Eu amo o seu cheiro.",
+"Eu amo quando o beijo vira encher a boca um do outro de ar.",
+"Eu amo como você segura minha cintura.",
+"Eu amo nossos selinhos.",
+"Eu amo o seu abraço.",
+"Eu amo o seu beijo demorado.",
+"Eu amo a sua criatividade.",
+"Eu amo a sua inteligência.",
+"Eu amo o seu jeito bobo.",
+"Eu amo quando posso dormir em seu peito.",
+"Eu amo quando você me envolve em um abraço para dormir.",
+"Eu amo a segurança que você me transmite.",
+"Eu amo como você sempre me ajuda.",
+"Eu amo quando dormimos de conchinha.",
+"Eu amo ser sua.",
+"Eu amo quando você diz “Minha Muié”.",
+"Eu amo ter você.",
+"Eu amo como em pouco tempo sou completamente apaixonada por você.",
+"Eu amo quando você me aperta até estralar minhas costas.",
+"Eu amo como você segura minha mão.",
+"Eu amo quando você dirige segurando na minha coxa.",
+"Eu amo como você olha pra mim.",
+"Eu amo cada segundo que passo contigo.",
+"Eu amo e me orgulho pelo Engenheiro que você está se tornando.",
+"Eu amo ver você questionar todas as coisas.",
+"Eu amo ver você dormir.",
+"Eu amo a forma como você lida com minhas birras.",
+"Eu amo assistir com você, mesmo com você dando todos os spoilers possíveis.",
+"Eu amo como você é paciente comigo.",
+"Eu amo ouvir você falar de coisas que ama.",
+"Eu amo assistir Fórmula 1 com você.",
+"Eu amo ver você falar e ser tão previsível sobre o Max Verstappen.",
+"Eu amo mexer no seu cabelo.",
+"Eu amo quando você me inclui em seus programas diários.",
+"Eu amo como você tenta me entender.",
+"Eu amo pedir sua opinião pra tudo.",
+"Eu amo quando você me dá sua blusa quando estou com frio.",
+"Eu amo como você mudou por mim e como mudei por você.",
+"Eu amo como perdemos nosso orgulho apenas para ficar bem.",
+"Eu amo poder ser eu mesma quando estou com você.",
+"Eu amo quando você me olha com carinho enquanto estou distraída.",
+"Eu amo a vontade que tenho de te contar todas as novidades, até as mais insignificantes.",
+"Eu amo quando você se lembra de alguma coisa que contei e demonstra que estava prestando atenção.",
+"Eu amo imaginar todas as versões de nós que ainda vamos conhecer com o passar dos anos.",
+"Eu amo poder comemorar suas conquistas e torcer pelos seus sonhos.",
+"Eu amo quando você faz planos comigo, mesmo que sejam coisas simples.",
+"Eu amo a liberdade de brincar com você e, ao mesmo tempo, saber que posso ter conversas sérias ao seu lado.",
+"Eu amo a sensação de perceber que estamos aprendendo a amar um ao outro cada vez melhor.",
+"Eu amo que, entre tantas pessoas que eu poderia conhecer, foi com você que construí essa história.",
+"Eu amo que, mesmo sem saber tudo o que o futuro nos reserva, tenho vontade de descobrir cada pedacinho dele ao seu lado.",
+]
+let restantes = [...motivos];
+let vistos = 0;
+const reason = document.getElementById("reason");
+const counter = document.getElementById("counter");
+const progressFill = document.getElementById("progressFill");
+const reasonLabel = document.getElementById("reasonLabel");
+const nextButton = document.getElementById("nextButton");
+const surpriseButton = document.getElementById("surpriseButton");
+const hint = document.getElementById("hint");
+const letter = document.getElementById("letter");
+const openLetterButton = document.getElementById("openLetterButton");
+const letterText = document.getElementById("letterText");
+
+function mostrarMotivo(surpresa = false) {
+    if (restantes.length === 0) {
+        // Esconde todos os elementos da parte de cima e dos motivos
+        const titulo = document.querySelector('h1');
+        const intro = document.querySelector('.intro');
+        const jar = document.querySelector('.jar');
+        if (titulo) titulo.style.display = 'none';
+        if (intro) intro.style.display = 'none';
+        if (jar) jar.style.display = 'none';
+        
+        document.querySelector('.buttons').style.display = 'none';
+        document.getElementById('reason').style.display = 'none';
+        document.getElementById('counter').style.display = 'none';
+        document.querySelector('.progress').style.display = 'none';
+        if (hint) hint.style.display = 'none';
+        
+        // Mostra a secção da carta com a mensagem "Uma última coisinha" e o botão
+        const letterSection = document.getElementById('letter');
+        if (letterSection) {
+            letterSection.style.display = 'block';
+        }
+        
+        soltarCoracoes(50);
+        return;
+    
+    }
+
+    const indice = Math.floor(Math.random() * restantes.length);
+    const [mensagem] = restantes.splice(indice, 1);
+    vistos++;
+    
+    reason.textContent = mensagem;
+    counter.textContent = `MOTIVO ${vistos} DE ${motivos.length}`;
+    progressFill.style.width = `${(vistos / motivos.length) * 100}%`;
+    soltarCoracoes(surpresa ? 18 : 7);
+}
+function soltarCoracoes(quantidade) {
+  const emojis = ["💗", "💕", "💖", "💘", "✨"];
+  for (let i = 0; i < quantidade; i++) {
+    const coracao = document.createElement("span");
+    coracao.className = "heart";
+    coracao.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    coracao.style.left = `${Math.random() * 100}vw`;
+    coracao.style.fontSize = `${16 + Math.random() * 18}px`;
+    coracao.style.animationDelay = `${Math.random() * 0.5}s`;
+    document.body.appendChild(coracao);
+    coracao.addEventListener("animationend", () => coracao.remove());
+  }
+}
+nextButton.addEventListener("click", () => mostrarMotivo(false));
+surpriseButton.addEventListener("click", () => mostrarMotivo(true));
+openLetterButton.addEventListener("click", () => {
+  letterText.hidden = false;
+  openLetterButton.hidden = true;
+  soltarCoracoes(22);
+});
+</script>
+</body>
+</html>
